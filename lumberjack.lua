@@ -1,5 +1,3 @@
-enum = require("enum")
-
 local IDLE = 0
 local FELLING = 1
 local RETURNING = 2
