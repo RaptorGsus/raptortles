@@ -32,6 +32,8 @@ local function idle()
     end
 
     term.clearLine()
+    local cursorX, cursorY = term.getCursorPos()
+    term.setCursorPos(0, cursorY)
 end
 
 local function fell()
