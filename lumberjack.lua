@@ -4,7 +4,7 @@ local IDLE = 0
 local FELLING = 1
 local RETURNING = 2
 
-local function checkGrowth
+local function checkGrowth()
     return turtle.inspect()
 end
 
