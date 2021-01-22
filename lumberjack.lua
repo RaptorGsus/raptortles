@@ -23,7 +23,7 @@ local function check(dir)
 end
 
 local function idle()
-    textutils.print("Idling")
+    write("Idling")
     textutils.slowWrite(". . .")
     
     if Check() then
@@ -53,7 +53,7 @@ local function returnHome()
 
     turtle.back()
     print('Home sweet home ^.^')
-    state == IDLE
+    state = IDLE
 end
 
 print("Well I'm a lumberjack and I'm OK! ^.^")
