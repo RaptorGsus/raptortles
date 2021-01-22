@@ -2,7 +2,9 @@ local IDLE = 0
 local FELLING = 1
 local RETURNING = 2
 
-local function Check(dir)
+local state = IDLE
+
+local function check(dir)
     local success, block
     
     if dir == "up" then
@@ -20,18 +22,23 @@ local function Check(dir)
     end
 end
 
-local function Idle()
+local function idle()
+    textutils.print("Idling")
+    textutils.slowWrite(". . .")
+    
     if Check() then
         print('Starting work! o7')
         state = FELLING
     end
+
+    term.clearLine()
 end
 
-local function Fell()
+local function fell()
     turtle.dig()
     turtle.forward()
 
-    while Check("up") do
+    while check("up") do
         turtle.digUp()
         turtle.up()
     end
@@ -39,14 +46,24 @@ local function Fell()
     state = RETURNING
 end
 
+local function returnHome()
+    print('Pfew, finally done!')
+    repeat turtle.down()
+    until  turtle.detectDown()
+
+    turtle.back()
+    print('Home sweet home ^.^')
+    state == IDLE
+end
+
 print("Well I'm a lumberjack and I'm OK! ^.^")
-local state = IDLE
 
 --main loop
 while true do
-    if      state == IDLE then Idle()
-    elseif  state == FELLING then Fell()
-        print("oops!")
+    if      state == IDLE then idle()
+    elseif  state == FELLING then fell()
+    elseif  state == RETURNING then returnHome()
+    else    print("oops!")
         break
     end
 end
