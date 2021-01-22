@@ -1,9 +1,14 @@
-write("/nBooting")
-textutils.slowWrite("...")
 print("Well I'm a lumberjack and I'm OK! ^.^")
 
 local function Idle()
-    -- Do stuff
+    local isBlock = inspect();
+
+    if isBlock then
+        print("OwO what's this?")
+    end
+
 end
+
+Idle()
 
 
