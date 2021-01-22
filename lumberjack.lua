@@ -1,14 +1,32 @@
-print("Well I'm a lumberjack and I'm OK! ^.^")
+enum = require("enum")
 
-local function Idle()
-    local isBlock = turtle.inspect();
+local IDLE = 0
+local FELLING = 1
+local RETURNING = 2
 
-    if isBlock then
-        print("OwO what's this?")
-    end
-
+local function checkGrowth
+    return turtle.inspect()
 end
 
-Idle()
+local function Idle()
+
+    if checkBlock()
+    
+end
+
+print("Well I'm a lumberjack and I'm OK! ^.^")
+local state = IDLE
+
+print(turtle.inspect())
+
+--main loop
+--while true do
+    
+  --  if      state == IDLE then Idle()
+
+--end
+
+
+
 
 
