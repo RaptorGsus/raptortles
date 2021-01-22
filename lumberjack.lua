@@ -24,7 +24,7 @@ end
 
 local function idle()
     write("Idling")
-    textutils.slowWrite(". . .")
+    textutils.slowWrite(". . . ")
     
     if check() then
         print('Starting work! o7')
