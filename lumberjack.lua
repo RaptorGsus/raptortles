@@ -26,7 +26,7 @@ local function idle()
     write("Idling")
     textutils.slowWrite(". . .")
     
-    if Check() then
+    if check() then
         print('Starting work! o7')
         state = FELLING
     end
@@ -63,7 +63,8 @@ while true do
     if      state == IDLE then idle()
     elseif  state == FELLING then fell()
     elseif  state == RETURNING then returnHome()
-    else    print("oops!")
+    else  
+        print("oops! @.@")
         break
     end
 end
