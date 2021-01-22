@@ -1,5 +1,5 @@
 local function Download(repoFile, saveAs)
-    local url = "https://github.com/RaptorGsus/raptortles/" .. repoFile
+    local url = "https://raw.githubusercontent.com/RaptorGsus/raptortles/master/" .. repoFile
     local download = http.get(url)
 
     if download then
@@ -9,16 +9,16 @@ local function Download(repoFile, saveAs)
         local file = fs.open(saveAs. "w")
         file.write(fileContents)
         file.close()
-        print("Saved <" .. url .. " as " .. saveAs)
+        print("Saved <" .. url .. "> as <" .. saveAs .. " >")
     else
         write("Download failed!")
         return false
     end
 end
 
-print("Enter the file name: ")
-local input = read()
-print("Save as: ")
-local fileName = read()
-
-Download(input, fileName)
+local tArgs = {...}
+if #tArgs == 2 then
+    Download(tArgs[1], tArgs[2])
+else 
+    print("ERROR: download takes 2 arguments: repoFile, saveAs")
+end
