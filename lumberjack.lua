@@ -22,7 +22,7 @@ local function check(dir)
     end
 end
 
-local function placeSapling
+local function placeSapling()
     turtle.select(1)
     turtle.place();
 end
