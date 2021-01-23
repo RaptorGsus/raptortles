@@ -22,10 +22,15 @@ local function check(dir)
     end
 end
 
+local function placeSapling
+    turtle.select(1)
+    turtle.place();
+end
+
 local function idle()
     write("Idling")
     textutils.slowWrite(". . . ")
-    
+
     if check() then
         print('Starting work! o7')
         state = FELLING
@@ -52,12 +57,12 @@ local function returnHome()
     print('Pfew, finally done!')
     repeat turtle.down()
     until  turtle.detectDown()
-
     turtle.back()
     print('Home sweet home ^.^')
+    placeSapling()
+
     state = IDLE
 end
-
 print("Well I'm a lumberjack and I'm OK! ^.^")
 
 --main loop
