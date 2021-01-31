@@ -25,11 +25,13 @@ end
 local function placeSapling()
     turtle.select(1)
     turtle.place();
+    turtle.select(2)
+    turtle.place()
 end
 
 local function printProgress(text)
     write(text)
-    textutils.slowWrite(". . . \n")
+    textutils.slowWrite(". . . ")
 end
 
 local function clearProgress()
@@ -41,14 +43,13 @@ end
 local function idle()
     printProgress("Idling")
     turtle.turnRight()
+
     if check() then
         print('\nStarting work! o7')
         state = FELLING
     end
 
     clearProgress()
-
-    
 end
 
 local function fell()
