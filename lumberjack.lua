@@ -27,18 +27,28 @@ local function placeSapling()
     turtle.place();
 end
 
-local function idle()
-    write("Idling")
-    textutils.slowWrite(". . . ")
+local function printProgress(text)
+    write(text)
+    textutils.slowWrite(". . . \n")
+end
 
-    if check() then
-        print('Starting work! o7')
-        state = FELLING
-    end
-
+local function clearProgress()
     term.clearLine()
     local cursorX, cursorY = term.getCursorPos()
     term.setCursorPos(1, cursorY)
+end
+
+local function idle()
+    printProgress("Idling")
+    turtle.turnRight()
+    if check() then
+        print('\nStarting work! o7')
+        state = FELLING
+    end
+
+    clearProgress()
+
+    
 end
 
 local function fell()
