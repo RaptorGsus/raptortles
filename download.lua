@@ -6,10 +6,10 @@ local function Download(repoFile, saveAs)
         local fileContents = download.readAll()
         download.close()
     
-        local file = fs.open(saveAs. "w")
+        local file = fs.open(saveAs, "w")
         file.write(fileContents)
         file.close()
-        print("Saved <" .. url .. "> as <" .. saveAs .. " >")
+        print("Saved <" .. url .. "> as <" .. saveAs .. ">")
     else
         write("Download failed!")
         return false
@@ -17,7 +17,9 @@ local function Download(repoFile, saveAs)
 end
 
 local tArgs = {...}
-if #tArgs == 2 then
+if #tArgs == 1
+    Download(tArgs)
+elseif #tArgs == 2 then
     Download(tArgs[1], tArgs[2])
 else 
     print("ERROR: download takes 2 arguments: repoFile, saveAs")
